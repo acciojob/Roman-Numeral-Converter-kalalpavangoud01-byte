@@ -9,7 +9,26 @@ function convertToRoman(num) {
       6:['I', 1]
     };
 
-  //your code here
+  //your code herelet result = "";
+
+    for (let [symbol, value] of symbols) {
+        while (num >= value) {
+            result += symbol;
+            num -= value;
+        }
+    }
+
+    // Handle subtractive notation
+    result = result
+        .replace(/DCCCC/g, "CM")
+        .replace(/CCCC/g, "CD")
+        .replace(/LXXXX/g, "XC")
+        .replace(/XXXX/g, "XL")
+        .replace(/VIIII/g, "IX")
+        .replace(/IIII/g, "IV");
+
+    return result;
+}
 
 }
 // You can test your code by running the above function and printing it to console by pressing the run button at the top. To run it with input 36, uncomment the following line
