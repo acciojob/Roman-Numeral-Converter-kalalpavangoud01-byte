@@ -11,26 +11,27 @@ function convertToRoman(num) {
 
     let result = "";
 
-    for (let [symbol, value] of symbols) {
+    for (let i = 0; i < 7; i++) {
+        let symbol = obj[i][0];
+        let value = obj[i][1];
+
         while (num >= value) {
             result += symbol;
             num -= value;
         }
     }
 
-    // Handle subtractive notation
     result = result
-        .replace(/DCCCC/g, "CM")
-        .replace(/CCCC/g, "CD")
-        .replace(/LXXXX/g, "XC")
-        .replace(/XXXX/g, "XL")
-        .replace(/VIIII/g, "IX")
-        .replace(/IIII/g, "IV");
+        .replace("DCCCC", "CM")
+        .replace("CCCC", "CD")
+        .replace("LXXXX", "XC")
+        .replace("XXXX", "XL")
+        .replace("VIIII", "IX")
+        .replace("IIII", "IV");
 
     return result;
 }
 
-}
 // You can test your code by running the above function and printing it to console by pressing the run button at the top. To run it with input 36, uncomment the following line
 
 // console.log(convertToRoman(36));
